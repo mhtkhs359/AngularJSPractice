@@ -11,22 +11,27 @@
       text-decoration: line-through;
     }
   </style>
+  <link src="todoApp.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC" rel="stylesheet">
 </head>
 <body>
-  <h1>Todo list</h1>
-  <div ng-controller="MainController">
-    <p>Finished Task: {{getDoneCount()}} / {{tasks.length}}</p>
-    <button ng-click="deleteDone()">Delete Finished</button>
-    <ul>
-      <li ng-repeat="task in tasks">
-      <input type="checkbox" ng-model="task.done">
-      <span class="done-{{task.done}}">{{task.body}}</span>
-      <a href ng-click="tasks.splice($index, 1)">[x]</a>
-      </li>
-    </ul>
-    <form ng-submit="addNew()">
-      <input type="text" ng-model="newTaskBody">
-      <input type="submit" value="add">
-    </form>
+  <div class="content">
+    <h1>Todo list</h1>
+    <div ng-controller="MainController">
+      <p>Finished Task: {{getDoneCount()}} / {{tasks.length}}</p>
+      <button ng-click="deleteDone()">Delete Finished</button>
+      <ul>
+        <li ng-repeat="task in tasks">
+        <input type="checkbox" ng-model="task.done">
+        <span class="done-{{task.done}}">{{task.body}}</span>
+        <a href ng-click="tasks.splice($index, 1)">[x]</a>
+        </li>
+      </ul>
+      <form ng-submit="addNew()" class="add">
+        <input type="text" ng-model="newTaskBody">
+        <input type="submit" value="add">
+      </form>
+    </div>
   </div>
 </body>
+</html>
